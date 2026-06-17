@@ -1325,5 +1325,18 @@
  </div>
  </footer>
  </div>
+<script>
+(function(){
+  var a=document.getElementById('theme-audio'),b=document.getElementById('play-btn'),played=false;
+  window.addEventListener('scroll',function(){
+    if(!played){
+      played=true;
+      a.volume=0.5;
+      a.play().then(function(){b.textContent='⏸ Pause'}).catch(function(){played=false});
+    }
+  },{passive:true});
+  a.addEventListener('ended',function(){b.textContent='▶ Play'});
+})();
+</script>
 </body>
 </html>
